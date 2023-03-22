@@ -1,6 +1,6 @@
 # TLS client certificate forward plugin for traefik
 
-[![Build Status](https://github.com/v-electrolux/tls-client-cert-forward/workflows/Main/badge.svg?branch=main)](https://github.com/v-electrolux/tls-client-cert-forward/actions)
+[![Build Status](https://github.com/v-electrolux/tls-client-cert-forward/workflows/Main/badge.svg?branch=master)](https://github.com/v-electrolux/tls-client-cert-forward/actions)
 
 Built-in traefik middleware PassTLSClientCert
 let you pass many certificate parameters such as common name or serial number.
