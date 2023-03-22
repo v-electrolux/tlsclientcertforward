@@ -67,7 +67,7 @@ func (t *TLSClientCertForward) ServeHTTP(rw http.ResponseWriter, req *http.Reque
 
 	if req.TLS != nil && len(req.TLS.PeerCertificates) > 0 {
 		peerCert := req.TLS.PeerCertificates[0]
-		headerContent := t.extractSn(peerCert)
+		headerContent := extractSn(peerCert)
 		headerEscapedContent := url.QueryEscape(headerContent)
 		req.Header.Set(snHeaderName, headerEscapedContent)
 		LoggerINFO.Printf("set %s header to %s", snHeaderName, headerEscapedContent)
@@ -78,13 +78,15 @@ func (t *TLSClientCertForward) ServeHTTP(rw http.ResponseWriter, req *http.Reque
 	t.next.ServeHTTP(rw, req)
 }
 
-func (t *TLSClientCertForward) extractSn(peerCert *x509.Certificate) string {
+func extractSn(peerCert *x509.Certificate) string {
 	if peerCert.SerialNumber != nil {
 		sn := peerCert.SerialNumber.String()
 		LoggerDEBUG.Printf("peer cert sn = %s", sn)
+
 		return sn
-	} else {
-		LoggerDEBUG.Printf("peer cert sn is empty")
-		return ""
 	}
+
+	LoggerDEBUG.Printf("peer cert sn is empty")
+
+	return ""
 }
