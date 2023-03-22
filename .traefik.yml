@@ -1,7 +1,7 @@
-displayName: TLS client certificate forward plugin for traefik
+displayName: TLS client certificate serial number forward
 type: middleware
 
-import: github.com/v-electrolux/tls-client-cert-forward
+import: github.com/v-electrolux/tlsclientcertforward
 
 summary: |
   Built-in traefik middleware PassTLSClientCert

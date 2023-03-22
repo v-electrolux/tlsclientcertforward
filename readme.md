@@ -1,6 +1,6 @@
 # TLS client certificate forward plugin for traefik
 
-[![Build Status](https://github.com/v-electrolux/tls-client-cert-forward/workflows/Main/badge.svg?branch=master)](https://github.com/v-electrolux/tls-client-cert-forward/actions)
+[![Build Status](https://github.com/v-electrolux/tlsclientcertforward/workflows/Main/badge.svg?branch=master)](https://github.com/v-electrolux/tlsclientcertforward/actions)
 
 Built-in traefik middleware PassTLSClientCert
 let you pass many certificate parameters such as common name or serial number.
@@ -19,36 +19,36 @@ This middleware solves this problem for you. It extracts just pure SN value and 
 
 - cli as local plugin
 ```
---experimental.localplugins.tls-client-cert-forward=true
---experimental.localplugins.tls-client-cert-forward.modulename=github.com/v-electrolux/tls-client-cert-forward
+--experimental.localplugins.tlsclientcertforward=true
+--experimental.localplugins.tlsclientcertforward.modulename=github.com/v-electrolux/tlsclientcertforward
 ```
 
 - envs as local plugin
 ```
-TRAEFIK_EXPERIMENTAL_LOCALPLUGINS_tls-client-cert-forward=true
-TRAEFIK_EXPERIMENTAL_LOCALPLUGINS_tls-client-cert-forward_MODULENAME=github.com/v-electrolux/tls-client-cert-forward
+TRAEFIK_EXPERIMENTAL_LOCALPLUGINS_tlsclientcertforward=true
+TRAEFIK_EXPERIMENTAL_LOCALPLUGINS_tlsclientcertforward_MODULENAME=github.com/v-electrolux/tlsclientcertforward
 ```
 
 - yaml as local plugin
 ```yaml
 experimental:
   localplugins:
-    tls-client-cert-forward:
-      modulename: github.com/v-electrolux/tls-client-cert-forward
+     tlsclientcertforward:
+      modulename: github.com/v-electrolux/tlsclientcertforward
 ```
 
 - toml as local plugin
 ```toml
-[experimental.localplugins.tls-client-cert-forward]
-    modulename = "github.com/v-electrolux/tls-client-cert-forward"
+[experimental.localplugins.tlsclientcertforward]
+    modulename = "github.com/v-electrolux/tlsclientcertforward"
 ```
 
 ### Dynamic config examples
 
 - docker labels
 ```
-traefik.http.middlewares.snForwardMiddleware.plugin.tls-client-cert-forward.snHeaderName=SSL_SN_HEADER
-traefik.http.middlewares.snForwardMiddleware.plugin.tls-client-cert-forward.logLevel=warn
+traefik.http.middlewares.snForwardMiddleware.plugin.tlsclientcertforward.snHeaderName=SSL_SN_HEADER
+traefik.http.middlewares.snForwardMiddleware.plugin.tlsclientcertforward.logLevel=warn
 traefik.http.routers.snForwardRouter.middlewares=snForwardMiddleware
 ```
 
@@ -74,7 +74,7 @@ http:
   middlewares:
      snForwardMiddleware:
       plugin:
-        tls-client-cert-forward:
+        tlsclientcertforward:
           snHeaderName: SSL_SN_HEADER
           logLevel: warn
 ```

@@ -5,12 +5,13 @@ import (
 	"crypto/tls"
 	"crypto/x509"
 	"encoding/pem"
-	tlsclientcertforward "github.com/v-electrolux/tls-client-cert-forward"
 	"io"
 	"net/http"
 	"net/http/httptest"
 	"reflect"
 	"testing"
+
+	"github.com/v-electrolux/tlsclientcertforward"
 )
 
 const (

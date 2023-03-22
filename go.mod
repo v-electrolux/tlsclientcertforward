@@ -1,3 +1,3 @@
-module github.com/v-electrolux/tls-client-cert-forward
+module github.com/v-electrolux/tlsclientcertforward
 
 go 1.18
